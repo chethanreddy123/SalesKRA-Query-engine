@@ -1,9 +1,21 @@
 from fastapi import FastAPI, HTTPException, Request, Response
 import google.generativeai as palm
+import langchain.vectorstores
+from fastapi.middleware.cors import CORSMiddleware
+
 
 palm.configure(api_key='AIzaSyA1fu-ob27CzsJozdr6pHd96t5ziaD87wM')
 
 app = FastAPI()
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 response = palm.chat(messages=["Jon is very good boy and works and microsoft"])
 
