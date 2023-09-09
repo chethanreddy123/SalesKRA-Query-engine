@@ -9,7 +9,6 @@ from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import json
 from pymongo.mongo_client import MongoClient
-from fastapi.middleware.cors import CORSMiddleware
 
 llm = GooglePalm(
     model='models/text-bison-001',
@@ -71,21 +70,7 @@ check = conversation_buf(initial_message)
 
 # Initialize FastAPI app
 app = FastAPI()
-origins = ["*"]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
-# Define request and response models (if needed)
-class ChatRequest(BaseModel):
-    query: str
-
-class ChatResponse(BaseModel):
-    response: str
 
 # Define API endpoint for chat
 @app.post("/chat/")
