@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException, Request, Response
 import google.generativeai as palm
-import langchain.vectorstores
 from fastapi.middleware.cors import CORSMiddleware
 
 
