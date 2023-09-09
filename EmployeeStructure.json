@@ -1,0 +1,93 @@
+{
+    "personalInformation": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "dateOfBirth": "1990-05-15",
+      "gender": "Male",
+      "contactInformation": {
+        "phone": "+1-555-555-5555",
+        "email": "john.doe@example.com",
+        "address": "123 Main Street, Anytown, USA"
+      },
+      "employeeID": "EMP12345"
+    },
+    "employmentDetails": [
+      {
+        "jobTitle": "Software Engineer",
+        "department": "Engineering",
+        "reportingManager": "Jane Smith",
+        "dateOfJoining": "2020-01-10",
+        "employmentStatus": "Full-time",
+        "employmentType": "Permanent"
+      },
+      {
+        "jobTitle": "Senior Software Engineer",
+        "department": "Engineering",
+        "reportingManager": "Jane Smith",
+        "dateOfJoining": "2017-03-15",
+        "employmentStatus": "Full-time",
+        "employmentType": "Permanent"
+      }
+    ],
+    "educationalBackground": [
+      {
+        "qualification": "BSc in Computer Science",
+        "institutionAttended": "University of XYZ",
+        "graduationYear": 2012
+      },
+      {
+        "qualification": "MSc in Software Engineering",
+        "institutionAttended": "Tech Institute ABC",
+        "graduationYear": 2014
+      }
+    ],
+    "professionalExperience": [
+      {
+        "previousJobTitle": "Junior Developer",
+        "previousEmployer": "Tech Corp Inc.",
+        "dateOfPreviousEmployment": "2015-2018",
+        "relevantSkillsAndExpertise": ["Python", "JavaScript", "Team Leadership"]
+      },
+      {
+        "previousJobTitle": "Senior Developer",
+        "previousEmployer": "Inno Solutions",
+        "dateOfPreviousEmployment": "2018-2020",
+        "relevantSkillsAndExpertise": ["Python", "JavaScript", "Team Leadership"]
+      }
+    ],
+    "skillsAndCompetencies": {
+      "technicalSkills": ["Java", "C++", "SQL"],
+      "softSkills": ["Communication", "Problem Solving", "Leadership"],
+      "industrySpecificSkills": ["Web Development", "Data Analysis"],
+      "certificationsAndTraining": ["AWS Certified Developer", "Scrum Master"]
+    },
+    "performanceAndAppraisalInformation": [
+      {
+        "performanceRating": 4.5,
+        "appraisalScore": 92,
+        "feedbackAndComments": [
+          "Consistently meets or exceeds expectations.",
+          "Strong problem-solving skills.",
+          "Excellent team player."
+        ],
+        "careerDevelopmentPlans": [
+          "Attend advanced programming courses.",
+          "Lead a project team within the next year."
+        ]
+      },
+      {
+        "performanceRating": 4.8,
+        "appraisalScore": 95,
+        "feedbackAndComments": [
+          "Consistently exceeds expectations.",
+          "Exceptional problem-solving skills.",
+          "Natural leader."
+        ],
+        "careerDevelopmentPlans": [
+          "Pursue advanced certifications in cloud computing.",
+          "Mentor junior team members."
+        ]
+      }
+    ]
+  }
+  
