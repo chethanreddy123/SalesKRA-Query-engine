@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Request, Response
-
 import google.generativeai as palm
+
 palm.configure(api_key='AIzaSyA1fu-ob27CzsJozdr6pHd96t5ziaD87wM')
 
 app = FastAPI()
