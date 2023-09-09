@@ -99,7 +99,6 @@ def AddKRA(info : dict):
     print(req_info)
     logger.info("recieved new patient details")
     req_info['KRAID'] = generate_random_id_KRA()
-
     try:
         Check = KRAsData.insert_one(req_info)
         if Check.acknowledged == True:
