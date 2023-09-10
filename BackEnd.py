@@ -158,6 +158,18 @@ def GetAllKRAs():
             del i['KRAID']
             del i['title']
         return Result
+    
+
+@app.get("/GetAllKRAsData/")
+def GetAllKRAsData():
+    logger.info("recieved all employee details")
+    Result = list(KRAsData.find({}))
+    if Result is None:
+        return {"status": "failed"}
+    else:
+        for i in Result:
+            del i['_id']
+        return Result
 
 
 @app.post("/GetKRA/")
