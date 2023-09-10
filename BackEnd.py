@@ -148,10 +148,15 @@ def AddKRA(info : dict):
 @app.get("/GetAllKRAs/")
 def GetAllKRAs():
     logger.info("recieved all employee details")
-    Result = list(KRAsData.find({}, {'KRAID': 1, '_id': 0}))
+    Result = list(KRAsData.find({}, {'KRAID': 1, '_id': 0, 'title' : 1}))
     if Result is None:
         return {"status": "failed"}
     else:
+        for i in Result:
+            i['value'] = i['KRAID'] + " " + i['title']
+            i["label"] = i['KRAID'] + " " + i['title']
+            del i['KRAID']
+            del i['title']
         return Result
 
 
