@@ -9,6 +9,8 @@ from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import json
 from pymongo.mongo_client import MongoClient
+from fastapi.middleware.cors import CORSMiddleware
+import logging
 
 llm = GooglePalm(
     model='models/text-bison-001',
@@ -50,27 +52,42 @@ llm = GooglePalm(
     google_api_key='AIzaSyA1fu-ob27CzsJozdr6pHd96t5ziaD87wM'
 )
 
-conversation_buf = ConversationChain(
-    llm=llm,
-    memory=ConversationBufferMemory()
+conversation_kg = ConversationChain(
+    llm=llm, 
+    memory=ConversationKGMemory(llm=llm)
 )
 
 
-
-# Initialize conversation_buf with the initial message
+# Initialize conversation_kg with the initial message
 initial_message = f'''Good morning AI!, You are an Expert 
 in Sales Key Result Areas (KRA) Setting and Performance Management. 
 You are here to help me with my queries regarding Sales Key Result Areas 
 (KRA) Setting and Performance Management, And all the sales employee data is 
 given below for future analysis: {json_string}'''
 
+logging.info(initial_message)
 
-check = conversation_buf(initial_message)
+
+check = conversation_kg(initial_message)
 
 
 # Initialize FastAPI app
 app = FastAPI()
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+# Define request and response models (if needed)
+class ChatRequest(BaseModel):
+    query: str
+
+class ChatResponse(BaseModel):
+    response: str
 
 # Define API endpoint for chat
 @app.post("/chat/")
@@ -79,7 +96,7 @@ async def chat(request: Request):
     query = json_data.get("query")
 
     try:
-        response = count_tokens(conversation_buf, query)
+        response = count_tokens(conversation_kg, query)
         return {"response": response}
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))

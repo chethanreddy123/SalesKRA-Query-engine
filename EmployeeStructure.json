@@ -56,9 +56,7 @@
       }
     ],
     "skillsAndCompetencies": {
-      "technicalSkills": ["Java", "C++", "SQL"],
-      "softSkills": ["Communication", "Problem Solving", "Leadership"],
-      "industrySpecificSkills": ["Web Development", "Data Analysis"],
+      "skills": ["Java", "C++", "SQL"],
       "certificationsAndTraining": ["AWS Certified Developer", "Scrum Master"]
     },
     "performanceAndAppraisalInformation": [
@@ -73,9 +71,10 @@
         "careerDevelopmentPlans": [
           "Attend advanced programming courses.",
           "Lead a project team within the next year."
-        ]
+        ],
+        "dateOfAppraisal": "2019-01-10"
       },
-      {
+     {
         "performanceRating": 4.8,
         "appraisalScore": 95,
         "feedbackAndComments": [
@@ -86,8 +85,9 @@
         "careerDevelopmentPlans": [
           "Pursue advanced certifications in cloud computing.",
           "Mentor junior team members."
-        ]
+        ],
+        "dateOfAppraisal": "2019-01-10"
       }
     ]
-  }
+  } 
   

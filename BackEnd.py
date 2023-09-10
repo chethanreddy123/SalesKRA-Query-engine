@@ -61,7 +61,6 @@ async def chat(request: Request):
     response = response.reply(message)
     return {"response": response.last}
 
-
 @app.post("/AddEmployee/")
 def NewPatient(info : dict):
     req_info = info
@@ -93,7 +92,19 @@ def GetEmployee(info : dict):
     else:
         del Result['_id']
         return Result
-    
+
+@app.get("/GetAllEmployees/")
+def GetAllEmployees():
+    logger.info("recieved all employee details")
+    Result = list(EmployeeData.find({}))
+    if Result is None:
+        return {"status": "failed"}
+    else:
+        for i in Result:
+            del i['_id']
+        return Result
+
+
 @app.post("/AddKRA/")
 def AddKRA(info : dict):
     req_info = info
