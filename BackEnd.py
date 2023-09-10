@@ -68,6 +68,7 @@ def NewPatient(info : dict):
     print(req_info)
     logger.info("recieved new patient details")
     req_info['personalInformation']['EmployeeID'] = generate_random_id()
+    req_info['ListOfKRAs'] = []
 
     try:
         Check = EmployeeData.insert_one(req_info)
@@ -92,6 +93,26 @@ def GetEmployee(info : dict):
     else:
         del Result['_id']
         return Result
+
+
+@app.post("/AddKRAtoEmployee/")
+def AddKRAtoEmployee(info : dict):
+    req_info = info
+    req_info = dict(req_info)
+    EmployeeID = req_info['EmployeeID']
+    KRAID = req_info['KRAID']
+    Result = EmployeeData.find_one({"personalInformation.EmployeeID": EmployeeID})
+    if Result is None:
+        return {"status": "failed"}
+    else:
+        del Result['_id']
+        Result['ListOfKRAs'].append(KRAID)
+        Check = EmployeeData.update_one({"personalInformation.EmployeeID": EmployeeID}, {"$set": Result})
+        if Check.acknowledged == True:
+            return {"status": "success"}
+        else:
+            return {"status": "failed"}
+
 
 @app.get("/GetAllEmployees/")
 def GetAllEmployees():
@@ -124,6 +145,15 @@ def AddKRA(info : dict):
         logger.error(e)
         return {"status": "failed"}
     
+@app.get("/GetAllKRAs/")
+def GetAllKRAs():
+    logger.info("recieved all employee details")
+    Result = list(KRAsData.find({}, {'KRAID': 1, '_id': 0}))
+    if Result is None:
+        return {"status": "failed"}
+    else:
+        return Result
+
 
 @app.post("/GetKRA/")
 def GetKRA(info : dict):
