@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agent Stopped Due to Iteration Limit or Time Limit</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<h1>Agent Stopped Due to Iteration Limit or Time Limit</h1>
+
+<p>The agent stopped due to either an iteration limit or a time limit. This could be because the agent was unable to find a solution within the specified number of iterations, or because the agent was running for too long.</p>
+
+<p>Here are some possible reasons why the agent stopped:</p>
+
+<ul>
+    <li>The problem was too difficult for the agent to solve.</li>
+    <li>The agent was not given enough time to find a solution.</li>
+    <li>The agent was not able to find a solution that met the specified criteria.</li>
+</ul>
+
+<p>If you are still having trouble, you can try increasing the iteration limit or the time limit, or you can try providing the agent with more information about the problem.</p>
+
+<p>Here is a graphical representation of the agent's progress:</p>
+
+<div id="performance-chart"></div>
+
+<script>
+    // Data from provided metrics
+    var months = ['APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'MAR'];
+    var completion_abs = [404.7562297, 355.2744963, 336.617683, 386.3596777, 413.7227661, 212.1058265, 312.9125137, 306.4131117, 402.5065738, 0, 0, 0];
+    var completion_pct = [11.3529, 9.965, 9.4417, 10.8369, 11.6044, 5.9493, 8.7768, 8.5945, 11.2898, 0, 0, 0];
+
+    var trace1 = {
+        x: months,
+        y: completion_abs,
+        type: 'bar',
+        name: 'Completion (Absolute)',
+        yaxis: 'y'
+    };
+
+    var trace2 = {
+        x: months,
+        y: completion_pct,
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Completion (Percentage)',
+        yaxis: 'y2'
+    };
+
+    var data = [trace1, trace2];
+
+    var layout = {
+        title: 'Monthly Completion Metrics',
+        xaxis: {title: 'Month'},
+        yaxis: {
+            title: 'Completion (Absolute)',
+            overlaying: 'y2'
+        },
+        yaxis2: {
+            title: 'Completion (Percentage)',
+            side: 'right',
+            overlaying: 'y'
+        }
+    };
+
+    Plotly.newPlot('performance-chart', data, layout);
+</script>
+
+</body>
+</html>
