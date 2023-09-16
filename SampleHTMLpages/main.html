@@ -1,0 +1,93 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Term Deposit is the highest brought product</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<h1>Term Deposit is the highest brought product</h1>
+
+<p>The following chart shows the number of term deposits brought by customers in each month of the year.</p>
+
+<div id="term-deposit-chart"></div>
+
+<script>
+    // Data from provided metrics
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var term_deposits = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200];
+
+    var trace1 = {
+        x: months,
+        y: term_deposits,
+        type: 'bar',
+        name: 'Term Deposits'
+    };
+
+    var data = [trace1];
+
+    var layout = {
+        title: 'Number of Term Deposits Brought by Customers per Month',
+        xaxis: {title: 'Month'},
+        yaxis: {title: 'Number of Term Deposits'}
+    };
+
+    Plotly.newPlot('term-deposit-chart', data, layout);
+</script>
+
+<p>The following table shows the top 5 products brought by customers in the year.</p>
+
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Number of Units Brought</th>
+    </tr>
+    <tr>
+        <td>Term Deposit</td>
+        <td>1200</td>
+    </tr>
+    <tr>
+        <td>Savings Account</td>
+        <td>1000</td>
+    </tr>
+    <tr>
+        <td>Fixed Deposit</td>
+        <td>800</td>
+    </tr>
+    <tr>
+        <td>Recurring Deposit</td>
+        <td>600</td>
+    </tr>
+    <tr>
+        <td>Loan</td>
+        <td>400</td>
+    </tr>
+</table>
+
+<p>The following pie chart shows the percentage of each product brought by customers in the year.</p>
+
+<div id="product-breakdown-chart"></div>
+
+<script>
+    // Data from provided metrics
+    var products = ['Term Deposit', 'Savings Account', 'Fixed Deposit', 'Recurring Deposit', 'Loan'];
+    var percentages = [0.5, 0.4, 0.3, 0.2, 0.1];
+
+    var trace1 = {
+        labels: products,
+        values: percentages,
+        type: 'pie'
+    };
+
+    var data = [trace1];
+
+    var layout = {
+        title: 'Percentage of Each Product Brought by Customers in the Year'
+    };
+
+    Plotly.newPlot('product-breakdown-chart', data, layout);
+</script>
+
+</body>
+</html>

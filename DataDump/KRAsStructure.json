@@ -1,0 +1,35 @@
+{
+    "KRAID" : "KRA-001",
+    "title": "Project Management for XYZ Initiative",
+    "description": "Oversee and coordinate all aspects of the XYZ Initiative, ensuring successful planning, execution, and delivery of key milestones.",
+    "kpis": {
+        "onTimeDelivery": "95%",
+        "budgetAdherence": "Within 5% variance",
+        "stakeholderSatisfaction": "Average rating of 4.5/5"
+    },
+    "weightage": 15,
+    "targetsObjectives": "Complete Phase 1 by end of Q3, achieve 95% on-time delivery, maintain budget adherence within 5% variance.",
+    "timeline": "Annual",
+    "performanceMeasurementFrequency": "Quarterly",
+    "responsibilitiesDuties": [
+        "Develop project plan and timeline.",
+        "Allocate resources and tasks.",
+        "Monitor progress and address issues.",
+        "Report status to stakeholders."
+    ],
+    "resourcesRequired": {
+        "budget": "$500,000",
+        "projectManagementSoftware": "XYZ Pro",
+        "crossFunctionalTeam": "5 members"
+    },
+    "skillsCompetencies": [
+        "Project Management",
+        "Risk Assessment",
+        "Stakeholder Communication"
+    ],
+    "dependencies": [
+        "Collaboration with Sales for client requirements",
+        "IT Support for technical implementation"
+    ],
+    "team": "Project Management Team"
+}
